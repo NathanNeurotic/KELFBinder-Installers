@@ -22,7 +22,6 @@ OSDSYS_Skip_HDD = 1
 cdrom_skip_ps2logo = 0
 cdrom_disable_gameid = 0
 cdrom_use_dkwdrv = 0
-path_LAUNCHER_ELF = mc?:/BOOT/launcher.elf
 path_DKWDRV_ELF = mc?:/APPS/DKWDRV.ELF
 name_OSDSYS_ITEM_1 = Launch Disc
 path1_OSDSYS_ITEM_1 = cdrom
