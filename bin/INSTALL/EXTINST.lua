@@ -75,9 +75,9 @@ end
 Update_InstTable("INSTALL/ASSETS/SYS-CONF", "SYS-CONF", MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
 Update_InstTable("INSTALL/ASSETS/APPS"  , "APPS"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
 Update_InstTable("INSTALL/ASSETS/BOOT"  , "BOOT"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
-Update_InstTable("INSTALL/ASSETS/SYS_FMCB-CFG"  , "SYS_FMCB-CFG"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
-Update_InstTable("INSTALL/ASSETS/FMCBD-1.953"  , "FMCBD-1.953"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
-Update_InstTable("INSTALL/ASSETS/FMCBD-1.966"  , "FMCBD-1.966"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
+Update_InstTable("INSTALL/ASSETS/NEUTRINO"  , "NEUTRINO"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
+Update_InstTable("INSTALL/ASSETS/NEUTRINO/config"  , "NEUTRINO/config"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
+Update_InstTable("INSTALL/ASSETS/NEUTRINO/modules"  , "NEUTRINO/modules"  , MC_INST_TABLE.source, MC_INST_TABLE.target, MC_INST_TABLE.dirs)
 
 
 
