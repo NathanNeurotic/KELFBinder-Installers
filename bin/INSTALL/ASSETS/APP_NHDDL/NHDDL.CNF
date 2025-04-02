@@ -1,4 +1,12 @@
-path=mmce?:/test/test.elf
-path=mmce?:/test/test2.elf
-arg=-testarg
-arg=-testarg2
+path=mmce?:/APPS/APP_NHDDL/NHDDL.ELF
+path=mmce?:/APPS/APP_NHDDL/nhddl.elf
+path=mmce?:/APPS/NHDDL.ELF
+path=mmce?:/APPS/nhddl.elf
+path=mmce?:/NEUTRINO/NHDDL.ELF
+path=mmce?:/NEUTRINO/nhddl.elf
+path=mmce?:/neutrino/NHDDL.ELF
+path=mmce?:/neutrino/nhddl.elf
+path=mmce?:/NHDDL/NHDDL.ELF
+path=mmce?:/nhddl/nhddl.elf
+path=mmce?:/NHDDL/nhddl.elf
+path=mmce?:/nhddl/NHDDL.ELF
