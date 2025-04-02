@@ -49,7 +49,7 @@ jobs:
         cp LICENSE bin/LICENSE.TXT
 
     - name: Get branch
-      if: github.ref != 'refs/heads/main'
+      if: github.ref != 'refs/heads/MMCE'
       id: brnch
       run: |
         echo "BRANCH=$(echo -${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
@@ -69,7 +69,7 @@ jobs:
         7z a -t7z ${{ github.event.repository.name }}${{ env.BRANCH }}.7z ${{ github.event.repository.name }}/
 
     - name: Create prerelease
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/MMCE'
       uses: mathieucarbou/marvinpinto-action-automatic-releases@latest
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
