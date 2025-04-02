@@ -74,8 +74,8 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: true
-        automatic_release_tag: "latest"
-        title: "Latest development build"
+        automatic_release_tag: "MMCE"
+        title: "Latest development MMCE build"
         files: |
           ${{ github.event.repository.name }}${{ env.BRANCH }}.7z
 
