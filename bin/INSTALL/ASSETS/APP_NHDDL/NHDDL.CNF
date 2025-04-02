@@ -1,0 +1,4 @@
+path=mmce?:/test/test.elf
+path=mmce?:/test/test2.elf
+arg=-testarg
+arg=-testarg2
