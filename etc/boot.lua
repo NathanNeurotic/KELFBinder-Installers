@@ -60,7 +60,7 @@
   LNG_YES = "Yes"
   LNG_NO = "No"
   LNG_PLS_WAIT = "Please Wait..."
-  LNG_RWLE = "Run wLaunchELF (mc:/BOOT/BOOT2.ELF)"
+  LNG_RWLE = "Run wLaunchELF (BACKDOOR.ELF)"
   LNG_SYSTEMINFO = "SYSTEM INFORMATION"
   LNG_SUPATH = "System Update Path = [%s]"
   LNG_CONTINUE = "Continue"
