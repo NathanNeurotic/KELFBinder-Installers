@@ -1773,12 +1773,12 @@ function Ask2quit()
     Screen.clear()
     Graphics.drawScaleImage(BG, 0.0, 0.0, SCR_X, SCR_Y)
     Font.ftPrint(LSANS, X_MID, 40, 8, 630, 16, LNG_WANNAQUIT)
-    Promptkeys(1, LNG_YES, 1, LNG_NO, 1, LNG_RWLE, 0)
+    Promptkeys(1, LNG_RWLE, 1, LNG_NOALT, 1, LNG_YESALT, 0)
     ORBMAN(0x80 - Q)
     local pad = Pads.get()
-    if Pads.check(pad, PAD_CROSS) then KELFBinder.DeinitLOG() System.exitToBrowser() end
+    if Pads.check(pad, PAD_TRIANGLE) then KELFBinder.DeinitLOG() System.exitToBrowser() end
     if Pads.check(pad, PAD_CIRCLE) then break end
-    if Pads.check(pad, PAD_TRIANGLE) then
+    if Pads.check(pad, PAD_CROSS) then
       if doesFileExist("INSTALL/CORE/BACKDOOR.ELF") then
         KELFBinder.DeinitLOG()
         System.loadELF(System.getbootpath() .. "INSTALL/CORE/BACKDOOR.ELF")
