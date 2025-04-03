@@ -305,7 +305,7 @@ function Promptkeys(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   end
   
 function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
-  local startX = math.floor(SCR_X * 0.65)
+  local startX = math.floor(SCR_X * 0.48)
   local startY = math.floor(SCR_Y * 0.35)
   local spacing = 38
   local line = 0
