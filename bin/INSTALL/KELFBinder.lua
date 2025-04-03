@@ -291,10 +291,18 @@ function HDDCalculateRequiredSpace(INSTALL_TABLE, partition)
 end
 
 function printMultiline(font, x, y, fontsize, width, height, text, color, lineSpacing)
+  if not font then System.log("printMultiline: font is nil") return end
+  if not text or type(text) ~= "string" then System.log("printMultiline: invalid text") return end
+  color = color or Color.new(255, 255, 255, 255)
   local spacing = lineSpacing or (height + 4)
   local i = 0
   for line in string.gmatch(text, "([^\n]+)") do
-    Font.ftPrint(font, x, y + (i * spacing), fontsize, width, height, line, color)
+    local drawX = math.floor(x)
+    local drawY = math.floor(y + (i * spacing))
+    local fs = math.floor(fontsize)
+    local w = math.floor(width)
+    local h = math.floor(height)
+    Font.ftPrint(font, drawX, drawY, fs, w, h, line, color)
     i = i + 1
   end
 end
@@ -312,7 +320,8 @@ function Promptkeys(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
     Graphics.drawScaleImage(triangle, 260.0, 400.0, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
     Font.ftPrint(LSANS, 290, 407, 0, 400, 16, RT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
   end
-  
+end
+
 function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   local startX = math.floor(SCR_X * 0.48)
   local startY = math.floor(SCR_Y * 0.35)
