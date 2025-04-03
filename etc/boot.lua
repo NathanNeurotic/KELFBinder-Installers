@@ -56,7 +56,7 @@
   LNG_TESTSUCC = "Test succeeded!"
   LNG_INSTALLING = "Installing System Updates..."
   LNG_INSTFINISH = "Installation finished!"
-  LNG_WANNAQUIT = "Exit to OSDSYS or\nadd OpenTuna Icon Exploit Installation?\n(Make sure you have installed at least 1 form of UMCS\nbefore installing OpenTuna.\nThis ensures the presence of required\nmc?:/BOOT/BOOT.ELF)"
+  LNG_WANNAQUIT = "Add an OpenTuna Icon Exploit to launch mc?/BOOT/BOOT.ELF from the PS2 Browser without a System Update.\n(Make sure you have installed at least 1 form of UMCS before installing OpenTuna.\nThis ensures the presence of required\nmc?:/BOOT/BOOT.ELF)"
   LNG_YES = "Yes"
   LNG_YESALT = "Exit to OSDSYS"
   LNG_NO = "No"
