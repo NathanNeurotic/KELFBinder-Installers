@@ -322,7 +322,7 @@ function Promptkeys(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   end
 end
 
-function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
+function Vertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   local startX = math.floor(SCR_X * 0.48)
   local startY = math.floor(SCR_Y * 0.35)
   local spacing = 38
@@ -438,12 +438,12 @@ function MainMenu()
       Font.ftPrint(LSANS, X_MID, 310, 0, 630, 16, LNG_MM6, Color.new(200, 200, 200, 0x80 - A))
     end
     if T == 6 then
-      Font.ftPrint(LSANS, X_MID+1, 350, 0, 630, 16, LNG_MM5, Color.new(0, 0xde, 0xff, 0x90 - A))
+      Font.ftPrint(LSANS, SCR_X - 20, 350, 2, 630, 16, LNG_MM5, Color.new(0, 0xde, 0xff, 0x90 - A))
     else
-      Font.ftPrint(LSANS, X_MID, 350, 0, 630, 16, LNG_MM5, Color.new(200, 200, 200, 0x80 - A))
+      Font.ftPrint(LSANS, SCR_X - 20, 350, 2, 630, 16, LNG_MM5, Color.new(200, 200, 200, 0x80 - A))
     end
     if A > 0 then A = A - 1 end
-    Promptkeys(1, LNG_CT0, 0, 0, 0, 0, A)
+    Promptkeys(1, LNG_CT0, 1, LNG_CT4, 0, 0, A)
 
     if NA > 0 then
       if MUST_INSTALL_EXTRA_FILES then
@@ -461,6 +461,7 @@ function MainMenu()
       Screen.clear()
       break
     end
+    if Pads.check(pad, PAD_CIRCLE) then KELFBinder.DeinitLOG() System.exitToBrowser() end
 
     if Pads.check(pad, PAD_R1) and D == 0 then
       NA = 0x80
