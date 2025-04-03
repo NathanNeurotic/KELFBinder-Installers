@@ -58,7 +58,7 @@
   LNG_INSTFINISH = "Installation finished!"
   LNG_WANNAQUIT = "Add an OpenTuna Icon Exploit to launch mc?/BOOT/BOOT.ELF from the PS2 Browser,\nallowing for entry on any consoles which can not auto boot exploits.\n(Make sure you have installed at least 1 form of UMCS before installing OpenTuna.\nThis ensures the presence of required mc?:/BOOT/BOOT.ELF)"
   LNG_YES = "Yes"
-  LNG_YESALT = "Exit and Launch OpenTuna Icon Installer
+  LNG_YESALT = "Exit and Launch OpenTuna Icon Installer"
   LNG_NO = "No"
   LNG_NOALT = "Go Back to KELFBinder Menu"
   LNG_PLS_WAIT = "Please Wait..."
