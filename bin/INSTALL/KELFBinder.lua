@@ -350,9 +350,6 @@ function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   end
 end
 
-
-end
-
 function Greeting()
   local CONTINUE = true
   local Q = 2
