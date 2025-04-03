@@ -438,21 +438,23 @@ function MainMenu()
       Font.ftPrint(LSANS, X_MID, 310, 0, 630, 16, LNG_MM6, Color.new(200, 200, 200, 0x80 - A))
     end
     if T == 6 then
-      Font.ftPrint(LSANS, SCR_X - 20, 350, 2, 630, 16, LNG_MM5, Color.new(0, 0xde, 0xff, 0x90 - A))
+      Font.ftPrint(LSANS, X_MID+1, 350, 0, 630, 16, LNG_MM5, Color.new(0, 0xde, 0xff, 0x90 - A))
     else
-      Font.ftPrint(LSANS, SCR_X - 20, 350, 2, 630, 16, LNG_MM5, Color.new(200, 200, 200, 0x80 - A))
+      Font.ftPrint(LSANS, X_MID, 350, 0, 630, 16, LNG_MM5, Color.new(200, 200, 200, 0x80 - A))
     end
     if A > 0 then A = A - 1 end
     Promptkeys(1, LNG_CT0, 1, LNG_CT4, 0, 0, A)
-
-    if NA > 0 then
-      if MUST_INSTALL_EXTRA_FILES then
-        Font.ftPrint(LSANS, 40, 40, 0, 630, 16,  LNG_EXTRA_INSTALL_ENABLE, Color.new(0x80, 0x80, 0, NA))
-      else
-        Font.ftPrint(LSANS, 40, 40, 0, 630, 16, LNG_EXTRA_INSTALL_DISABLE, Color.new(0x80, 0x80, 0, NA))
-      end
-      NA = NA-1
+   -- Permanent toggle message on top-right
+    local msg
+    if MUST_INSTALL_EXTRA_FILES then
+	msg = LNG_EXTRA_INSTALL_ENABLE
+    else
+	msg = LNG_EXTRA_INSTALL_DISABLE
     end
+
+    local text_width = Font.ftTextWidth(LSANS, msg, 16)
+    local x_pos = SCR_X - text_width - 20 -- 20px from right edge
+	Font.ftPrint(LSANS, x_pos, 40, 0, 630, 16, msg, Color.new(0x80, 0x80, 0))
 
     Screen.flip()
     local pad = Pads.get()
@@ -461,7 +463,10 @@ function MainMenu()
       Screen.clear()
       break
     end
-    if Pads.check(pad, PAD_CIRCLE) then KELFBinder.DeinitLOG() System.exitToBrowser() end
+
+    if Pads.check(pad, PAD_CIRCLE) and D == 0 then
+	KELFBinder.DeinitLOG() System.exitToBrowser()
+    end
 
     if Pads.check(pad, PAD_R1) and D == 0 then
       NA = 0x80
