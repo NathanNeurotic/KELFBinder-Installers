@@ -449,7 +449,7 @@ function MainMenu()
 
 -- Fallback in case msg is nil
 	if type(msg) ~= "string" then msg = "PS2BBL Exploit Only" end
-	Font.ftPrint(LSANS, SCR_X - 200, 40, 0, 630, 16, msg, Color.new(0x80, 0x80, 0, 0xFF))
+	Font.ftPrint(LSANS, SCR_X - 300, 40, 0, 630, 16, msg, Color.new(0x80, 0x80, 0, 0xFF))
 
     Screen.flip()
     local pad = Pads.get()
