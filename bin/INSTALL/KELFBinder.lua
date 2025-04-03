@@ -1773,7 +1773,14 @@ function Ask2quit()
     Screen.clear()
     Graphics.drawScaleImage(BG, 0.0, 0.0, SCR_X, SCR_Y)
     Font.ftPrint(LSANS, X_MID, 40, 8, 630, 16, LNG_WANNAQUIT)
-    Promptkeys(1, LNG_RWLE, 1, LNG_NOALT, 1, LNG_YESALT, 0)
+    -- Calculate X position to move prompts to the right half of the screen
+    local promptX = SCR_X * 0.65   -- adjust between 0.6–0.8 for more/less rightward
+    local promptY = SCR_Y * 0.35   -- starting vertical position (35% down from top)
+    local spacing = 32             -- vertical spacing between lines
+    Font.ftPrint(LSANS, promptX, promptY, 8, 630, 16, LNG_RWLE)
+    Font.ftPrint(LSANS, promptX, promptY + spacing, 8, 630, 16, LNG_NOALT)
+    Font.ftPrint(LSANS, promptX, promptY + spacing * 2, 8, 630, 16, LNG_YESALT)
+
     ORBMAN(0x80 - Q)
     local pad = Pads.get()
     if Pads.check(pad, PAD_TRIANGLE) then KELFBinder.DeinitLOG() System.exitToBrowser() end
