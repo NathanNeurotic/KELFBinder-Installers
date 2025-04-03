@@ -66,7 +66,7 @@ jobs:
         echo Repository commit hash is: ${{ env.SHA8 }}>>bin/INSTALL/CORE/HASH.TXT
         echo if you report an issue to the developer. there is a high chance that he might ask you this code>>bin/INSTALL/CORE/HASH.TXT
         mv bin/ ${{ github.event.repository.name }}/
-        7z a -t7z ${{ github.event.repository.name }}${{ env.BRANCH }}.7z ${{ github.event.repository.name }}/
+        7z a -t7z ${{ github.event.repository.name }}${{ env.BRANCH }}.7z ${{ github.event.repository.name }}${{ env.BRANCH }}/
 
     - name: Create prerelease
       if: github.ref == 'refs/heads/MMCE'
