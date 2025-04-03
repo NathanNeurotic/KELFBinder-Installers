@@ -303,6 +303,35 @@ function Promptkeys(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
     Graphics.drawScaleImage(triangle, 260.0, 400.0, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
     Font.ftPrint(LSANS, 290, 407, 0, 400, 16, RT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
   end
+  
+function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
+  local startX = math.floor(SCR_X * 0.65)
+  local startY = math.floor(SCR_Y * 0.35)
+  local spacing = 38
+  local line = 0
+
+  if SELECT == 1 then
+    local y = startY + (spacing * line)
+    Graphics.drawScaleImage(cross, startX, y, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    Font.ftPrint(LSANS, startX + 40, y + 7, 0, 400, 16, ST, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    line = line + 1
+  end
+
+  if CANCEL == 1 then
+    local y = startY + (spacing * line)
+    Graphics.drawScaleImage(circle, startX, y, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    Font.ftPrint(LSANS, startX + 40, y + 7, 0, 400, 16, CT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    line = line + 1
+  end
+
+  if REFRESH == 1 then
+    local y = startY + (spacing * line)
+    Graphics.drawScaleImage(triangle, startX, y, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    Font.ftPrint(LSANS, startX + 40, y + 7, 0, 400, 16, RT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    line = line + 1
+  end
+end
+
 
 end
 
@@ -1773,7 +1802,7 @@ function Ask2quit()
     Screen.clear()
     Graphics.drawScaleImage(BG, 0.0, 0.0, SCR_X, SCR_Y)
     Font.ftPrint(LSANS, X_MID, 40, 8, 630, 16, LNG_WANNAQUIT)
-    Promptkeys(1, LNG_YES, 1, LNG_NO, 1, LNG_RWLE, 0)
+    PromptkeysVertical(1, LNG_YESALT, 1, LNG_NOALT, 1, LNG_RWLE, 0)
     ORBMAN(0x80 - Q)
     local pad = Pads.get()
     if Pads.check(pad, PAD_CROSS) then KELFBinder.DeinitLOG() System.exitToBrowser() end
