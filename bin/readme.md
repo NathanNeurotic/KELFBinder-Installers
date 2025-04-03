@@ -1,8 +1,3 @@
-Perfect — here’s the fully revised `README.md` that clearly separates SD and USB responsibilities, guides users at all technical levels, and maintains the structure and file order exactly as intended:
-
----
-
-```markdown
 # 📂 HOW TO INSTALL – SIMPLE INSTRUCTIONS
 
 Welcome! Follow the steps below carefully to set everything up.  
@@ -81,6 +76,3 @@ If you're unsure about anything, don’t worry — take your time and re-read th
 Ask for help in the community if needed — we’re happy to support you!
 
 ---
-```
-
-Let me know if you want a PDF or printed-friendly version as well — or any images to accompany this for truly beginner-level clarity.
