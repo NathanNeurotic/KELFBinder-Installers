@@ -175,4 +175,3 @@ System.sleep(5)
 Screen.clear(Color.new(0xff, 0xff, 0xff))
 Screen.flip()
 while true do end
-
