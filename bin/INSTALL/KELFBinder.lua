@@ -322,7 +322,7 @@ function Promptkeys(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   end
 end
 
-function Vertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
+function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   local startX = math.floor(SCR_X * 0.48)
   local startY = math.floor(SCR_Y * 0.35)
   local spacing = 38
@@ -443,18 +443,13 @@ function MainMenu()
       Font.ftPrint(LSANS, X_MID, 350, 0, 630, 16, LNG_MM5, Color.new(200, 200, 200, 0x80 - A))
     end
     if A > 0 then A = A - 1 end
-    Promptkeys(1, LNG_CT0, 1, LNG_CT4, 0, 0, A)
+    Promptkeys(1, LNG_CT0, 0, 0, 1, LNG_CT4, A)
    -- Permanent toggle message on top-right
-    local msg
-    if MUST_INSTALL_EXTRA_FILES then
-	msg = LNG_EXTRA_INSTALL_ENABLE
-    else
-	msg = LNG_EXTRA_INSTALL_DISABLE
-    end
+	local msg = MUST_INSTALL_EXTRA_FILES and LNG_EXTRA_INSTALL_ENABLE or LNG_EXTRA_INSTALL_DISABLE
 
-    local text_width = Font.ftTextWidth(LSANS, msg, 16)
-    local x_pos = SCR_X - text_width - 20 -- 20px from right edge
-	Font.ftPrint(LSANS, x_pos, 40, 0, 630, 16, msg, Color.new(0x80, 0x80, 0))
+-- Fallback in case msg is nil
+	if type(msg) ~= "string" then msg = "PS2BBL Exploit Only" end
+	Font.ftPrint(LSANS, SCR_X - 200, 40, 0, 630, 16, msg, Color.new(0x80, 0x80, 0, 0xFF))
 
     Screen.flip()
     local pad = Pads.get()
@@ -464,7 +459,7 @@ function MainMenu()
       break
     end
 
-    if Pads.check(pad, PAD_CIRCLE) and D == 0 then
+    if Pads.check(pad, PAD_TRIANGLE) and D == 0 then
 	KELFBinder.DeinitLOG() System.exitToBrowser()
     end
 
@@ -1823,22 +1818,30 @@ function Ask2quit()
     Screen.clear()
     Graphics.drawScaleImage(BG, 0.0, 0.0, SCR_X, SCR_Y)
     printMultiline(LSANS, X_MID, 40, 8, 630, 16, LNG_WANNAQUIT)
-    PromptkeysVertical(1, LNG_YESALT, 1, LNG_NOALT, 1, LNG_RWLE, 0)
+    PromptkeysVertical(1, LNG_YESALT, 1, LNG_NOALT, 0, 0, 0)
     ORBMAN(0x80 - Q)
+
     local pad = Pads.get()
-    if Pads.check(pad, PAD_CROSS) then KELFBinder.DeinitLOG() System.exitToBrowser() end
-    if Pads.check(pad, PAD_CIRCLE) then break end
-    if Pads.check(pad, PAD_TRIANGLE) then
+
+    -- Cross = Accept / Run ELF
+    if Pads.check(pad, PAD_CROSS) then
       if doesFileExist("INSTALL/CORE/BACKDOOR.ELF") then
         KELFBinder.DeinitLOG()
         System.loadELF(System.getbootpath() .. "INSTALL/CORE/BACKDOOR.ELF")
       else
-        System.log("BACKDOOR ELF NOT ACCESIBLE\n")
+        System.log("BACKDOOR ELF NOT ACCESSIBLE\n")
       end
     end
+
+    -- Circle = Cancel / Exit Ask2quit
+    if Pads.check(pad, PAD_CIRCLE) then
+      break
+    end
+
     Screen.flip()
   end
 end
+
 
 function SystemInfo()
   local D = 15
