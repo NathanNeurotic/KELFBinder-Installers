@@ -290,6 +290,15 @@ function HDDCalculateRequiredSpace(INSTALL_TABLE, partition)
   return TotalRequiredSpace
 end
 
+function printMultiline(font, x, y, fontsize, width, height, text, color, lineSpacing)
+  local spacing = lineSpacing or (height + 4)
+  local i = 0
+  for line in string.gmatch(text, "([^\n]+)") do
+    Font.ftPrint(font, x, y + (i * spacing), fontsize, width, height, line, color)
+    i = i + 1
+  end
+end
+
 function Promptkeys(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   if SELECT == 1 then
     Graphics.drawScaleImage(cross, 80.0, 400.0, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
@@ -313,21 +322,21 @@ function PromptkeysVertical(SELECT, ST, CANCEL, CT, REFRESH, RT, ALFA)
   if SELECT == 1 then
     local y = startY + (spacing * line)
     Graphics.drawScaleImage(cross, startX, y, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
-    Font.ftPrint(LSANS, startX + 40, y + 7, 0, 400, 16, ST, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    printMultiline(LSANS, startX + 40, y + 7, 0, 400, 16, ST, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
     line = line + 1
   end
 
   if CANCEL == 1 then
     local y = startY + (spacing * line)
     Graphics.drawScaleImage(circle, startX, y, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
-    Font.ftPrint(LSANS, startX + 40, y + 7, 0, 400, 16, CT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    printMultiline(LSANS, startX + 40, y + 7, 0, 400, 16, CT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
     line = line + 1
   end
 
   if REFRESH == 1 then
     local y = startY + (spacing * line)
     Graphics.drawScaleImage(triangle, startX, y, 32, 32, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
-    Font.ftPrint(LSANS, startX + 40, y + 7, 0, 400, 16, RT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
+    printMultiline(LSANS, startX + 40, y + 7, 0, 400, 16, RT, Color.new(0x80, 0x80, 0x80, 0x80 - ALFA))
     line = line + 1
   end
 end
@@ -1801,7 +1810,7 @@ function Ask2quit()
     Q = Q + QQ
     Screen.clear()
     Graphics.drawScaleImage(BG, 0.0, 0.0, SCR_X, SCR_Y)
-    Font.ftPrint(LSANS, X_MID, 40, 8, 630, 16, LNG_WANNAQUIT)
+    printMultiline(LSANS, X_MID, 40, 8, 630, 16, LNG_WANNAQUIT)
     PromptkeysVertical(1, LNG_YESALT, 1, LNG_NOALT, 1, LNG_RWLE, 0)
     ORBMAN(0x80 - Q)
     local pad = Pads.get()
